@@ -30,6 +30,13 @@ unsigned char r;
 		this->b = blue;
 	}
 
+	Pixel::Pixel(const int gray)
+	{
+		this->r = gray;
+		this->g = gray;
+		this->b = gray;
+	}
+
 	Pixel::~Pixel() = default;
 
 	void Pixel::setPixel(const byte red, const byte green, const byte blue)
@@ -88,13 +95,29 @@ unsigned char r;
 
 	}
 
-bool operator==(Pixel const & lhs, const Pixel &rhs)
+	bool operator==(Pixel const & lhs, const Pixel &rhs)
 	{
 		return lhs.getRed() == rhs.getRed() && lhs.getGreen() == rhs.getGreen() && lhs.getBlue() == rhs.getBlue();
+	}
+	bool operator==(Pixel const & lhs, const byte rhs)
+	{
+		return lhs.getRed() == rhs && lhs.getGreen() == rhs && lhs.getBlue() == rhs;
+	}
+	bool operator==(Pixel const & lhs, const int rhs)
+	{
+		return lhs.getRed() == rhs && lhs.getGreen() == rhs && lhs.getBlue() == rhs;
 	}
 	bool operator!=(Pixel const & lhs, const Pixel &rhs)
 	{
 		return !(lhs == rhs);
+	}
+	bool operator!=(Pixel const & lhs, const byte rhs)
+	{
+		return lhs.getRed() != rhs && lhs.getGreen() != rhs && lhs.getBlue() != rhs;
+	}
+	bool operator!=(Pixel const & lhs, const int rhs)
+	{
+		return lhs.getRed() != rhs && lhs.getGreen() != rhs && lhs.getBlue() != rhs;
 	}
 	bool operator<(Pixel const & lhs, const Pixel &rhs)
 	{

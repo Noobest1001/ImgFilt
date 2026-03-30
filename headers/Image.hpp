@@ -16,7 +16,7 @@ class Image
 	std::string imgName;
 	FileType fileType;
 	bool load = false;
-	unsigned int width = NULL, height = NULL;
+	unsigned int width = 0, height = 0;
 	Pixel pixel = Pixel(0,0,0);
 
 	public:

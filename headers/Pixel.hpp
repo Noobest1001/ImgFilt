@@ -14,6 +14,7 @@ class Pixel
 	public:
 		explicit Pixel(const std::tuple<byte, byte, byte>& rgb);
 		explicit Pixel(byte red, byte green, byte blue);
+		Pixel(int gray);
 		~Pixel();
 
 		// Setters
@@ -31,21 +32,54 @@ class Pixel
 
 // Logical Operators
 bool operator==(Pixel const & lhs, const Pixel &rhs);
+bool operator==(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
+bool operator==(Pixel const & lhs, byte rhs);
+bool operator==(Pixel const & lhs, int rhs);
 bool operator!=(Pixel const & lhs, const Pixel &rhs);
+bool operator!=(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
+bool operator!=(Pixel const & lhs, byte rhs);
+bool operator!=(Pixel const & lhs, int rhs);
 bool operator<(Pixel const & lhs, const Pixel &rhs);
+bool operator<(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
+bool operator<(Pixel const & lhs, byte rhs);
+bool operator<(Pixel const & lhs, int rhs);
 bool operator>(Pixel const & lhs, const Pixel &rhs);
+bool operator>(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
+bool operator>(Pixel const & lhs, byte rhs);
+bool operator>(Pixel const & lhs, int rhs);
 bool operator<=(Pixel const & lhs, const Pixel &rhs);
+bool operator<=(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
+bool operator<=(Pixel const & lhs, byte rhs);
+bool operator<=(Pixel const & lhs, int rhs);
 bool operator>=(Pixel const & lhs, const Pixel &rhs);
+bool operator>=(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
+bool operator>=(Pixel const & lhs, byte rhs);
+bool operator>=(Pixel const & lhs, int rhs);
 // bool operator&&(Pixel const & lhs, const Pixel &rhs);
 // bool operator||(Pixel const & lhs, const Pixel &rhs);
 bool operator!(Pixel const & lhs);
 
 // Arithmetic Operators
 Pixel operator+(Pixel const & lhs, const Pixel &rhs);
+Pixel operator+(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
+Pixel operator+(Pixel const & lhs, byte rhs);
+Pixel operator+(Pixel const & lhs, int rhs);
 Pixel operator-(Pixel const & lhs, const Pixel &rhs);
+Pixel operator-(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
+Pixel operator-(Pixel const & lhs, byte rhs);
+Pixel operator-(Pixel const & lhs, int rhs);
 Pixel operator*(Pixel const & lhs, const Pixel &rhs);
+Pixel operator*(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
+Pixel operator*(Pixel const & lhs, byte rhs);
+Pixel operator*(Pixel const & lhs, int rhs);
 Pixel operator/(Pixel const & lhs, const Pixel &rhs);
+Pixel operator/(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
+Pixel operator/(Pixel const & lhs, byte rhs);
+Pixel operator/(Pixel const & lhs, int rhs);
 Pixel operator%(Pixel const & lhs, const Pixel &rhs);
+Pixel operator%(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
+Pixel operator%(Pixel const & lhs, byte rhs);
+Pixel operator%(Pixel const & lhs, int rhs);
 
 // Increment and Decrement Operators
 Pixel &operator++(Pixel &lhs); // Prefix increment
