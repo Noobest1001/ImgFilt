@@ -4,6 +4,8 @@ project(ImgFilt)
 set(CMAKE_CXX_STANDARD 23)
 
 add_executable(ImgFilt main.cpp
-        Window.cpp
-        library.cpp
-        Image.cpp)
+        src/Window.cpp
+        src/library.cpp
+        src/Image.cpp
+        headers/L_Window.hpp
+)

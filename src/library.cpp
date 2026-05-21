@@ -1,4 +1,4 @@
-﻿#include "headers/library.h"
+﻿#include "../headers/library.h"
 #include "Pixel.cpp"
 
 #include <filesystem>

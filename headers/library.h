@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <gdiplus.h>
 
-#include "Window.hpp"
+#include "M_Window.hpp"
 
 class GdiplusHelper
 {

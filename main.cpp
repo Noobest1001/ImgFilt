@@ -1,6 +1,6 @@
 ﻿#include<iostream>
 
-#include "headers/Window.hpp"
+#include "headers/M_Window.hpp"
 
 int main()
 {

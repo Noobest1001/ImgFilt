@@ -1,6 +1,6 @@
-﻿#include "headers/Image.hpp"
+﻿#include "../headers/Image.hpp"
 
-#include "headers/Window.hpp"
+#include "../headers/M_Window.hpp"
 
 
 Image::Image(const std::string &name, const bool load, const unsigned int width, const unsigned int height, const FileType fileType)
