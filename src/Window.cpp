@@ -4,3 +4,4 @@
     #include "../headers/L_Window.hpp"
 #endif
 
+Prog_Window::Prog_Window(std::string WindowName)

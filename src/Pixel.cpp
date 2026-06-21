@@ -2,9 +2,8 @@
 
 #include <cmath>
 #include <iostream>
-#include <gdiplus.h>
 
-unsigned char r;
+	unsigned char r;
 	unsigned char g;
 	unsigned char b;
 
@@ -90,14 +89,15 @@ unsigned char r;
 		std::cout << pixel.r << ", " << pixel.g << ", " << pixel.b << std::endl;
 	}
 
-	void Pixel::draw(Window &window, unsigned int x, unsigned int y, Pixel pixel) const
-	{
-
-	}
+	// Comparison ops
 
 	bool operator==(Pixel const & lhs, const Pixel &rhs)
 	{
 		return lhs.getRed() == rhs.getRed() && lhs.getGreen() == rhs.getGreen() && lhs.getBlue() == rhs.getBlue();
+	}
+	bool operator==(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs)
+	{
+		return lhs.getRed() == std::get<0>(rhs) && lhs.getGreen() == std::get<1>(rhs) && lhs.getBlue() == std::get<2>(rhs);
 	}
 	bool operator==(Pixel const & lhs, const byte rhs)
 	{
@@ -107,7 +107,12 @@ unsigned char r;
 	{
 		return lhs.getRed() == rhs && lhs.getGreen() == rhs && lhs.getBlue() == rhs;
 	}
+
 	bool operator!=(Pixel const & lhs, const Pixel &rhs)
+	{
+		return !(lhs == rhs);
+	}
+	bool operator!=(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs)
 	{
 		return !(lhs == rhs);
 	}
@@ -119,18 +124,34 @@ unsigned char r;
 	{
 		return lhs.getRed() != rhs && lhs.getGreen() != rhs && lhs.getBlue() != rhs;
 	}
+
+	bool operator<(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs)
+	{
+		return lhs.getRed()*0.2126 + lhs.getGreen()*0.7152 + lhs.getBlue()*0.0722 < std::get<0>(rhs) * 0.2126 + std::get<1>(rhs) * 0.7152 + std::get<2>(rhs) * 0.0722;
+	}
+	bool operator<(Pixel const & lhs, byte rhs)
+	{
+
+	}
+	bool operator<(Pixel const & lhs, int rhs)
+	{
+		return
+	}
 	bool operator<(Pixel const & lhs, const Pixel &rhs)
 	{
 		return lhs.getRed()*0.2126 + lhs.getGreen()*0.7152 + lhs.getBlue()*0.0722 < rhs.getRed()*0.2126 + rhs.getGreen()*0.7152 + rhs.getBlue()*0.0722;
 	}
+
 	bool operator>(Pixel const & lhs, const Pixel &rhs)
 	{
 		return lhs.getRed()*0.2126 + lhs.getGreen()*0.7152 + lhs.getBlue()*0.0722 > rhs.getRed()*0.2126 + rhs.getGreen()*0.7152 + rhs.getBlue()*0.0722;
 	}
+
 	bool operator<=(Pixel const & lhs, const Pixel &rhs)
 	{
 		return !(lhs > rhs);
 	}
+
 	bool operator>=(Pixel const & lhs, const Pixel &rhs)
 	{
 		return !(lhs < rhs);
@@ -143,17 +164,20 @@ unsigned char r;
 				   lhs.getGreen() + rhs.getGreen() > 255 ? 255 : lhs.getGreen() + rhs.getGreen(),
 					lhs.getBlue() + rhs.getBlue() > 255 ? 255 : lhs.getBlue() + rhs.getBlue());
 	}
+
 	Pixel operator-(Pixel const & lhs, const Pixel &rhs)
 	{
 		return Pixel(lhs.getRed() - rhs.getRed() < 0 ? 0 : lhs.getRed() - rhs.getRed(),
 				   lhs.getGreen() - rhs.getGreen() < 0 ? 0 : lhs.getGreen() - rhs.getGreen(),
 					lhs.getBlue() - rhs.getBlue() < 0 ? 0 : lhs.getBlue() - rhs.getBlue());
 	}
+
 	Pixel operator*(Pixel const & lhs, const Pixel &rhs)
 	{
 		return Pixel(std::round(lhs.getRed() * rhs.getRed() / 255), lhs.getGreen() * rhs.getGreen() / 255,
 		             lhs.getBlue() * rhs.getBlue() / 255);
 	}
+
 	Pixel operator/(Pixel const & lhs, const Pixel &rhs);
 
 	// Grayscale a pixel

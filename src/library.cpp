@@ -1,5 +1,4 @@
 ﻿#include "../headers/library.h"
-#include "Pixel.cpp"
 
 #include <filesystem>
 #include <fstream>
@@ -10,7 +9,6 @@
 void hello()
 {
 	std::cout << "Hello, World!" << std::endl;
-	new Pixel(255, 255, 255);
 }
 
 std::stringstream getMagicNumber(const std::string &filetype)
@@ -40,7 +38,7 @@ std::stringstream getFileType(const std::filesystem::path &filePath)
 	unsigned char buffer[8];
 	file.read(reinterpret_cast<char *>(buffer), sizeof(buffer));
 
-	// Im 99% sure this is redundant but just in case
+	// I'm 99% sure this is redundant but just in case
 	// if (!file)
 	// {
 	// 	ss << "Error: Unable to read file.";

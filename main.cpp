@@ -1,12 +1,13 @@
 ﻿#include<iostream>
 
+#include "headers/L_Window.hpp"
 #include "headers/M_Window.hpp"
 
 int main()
 {
 	std::cout << "Hello World!" << std::endl;
 
-	const auto* pWindow = new Window("Hello World!", 800, 600);
+	auto pWindow = Prog_Window("Hello World!");
 	bool running = true;
 
 	while (running)
@@ -20,7 +21,9 @@ int main()
 		Sleep(10);
 		// Process Windows messages
 	}
+#ifdef _WIN32
 	delete pWindow;
+#endif
 	return 0;
 
 }

@@ -1,11 +1,13 @@
 ﻿#pragma once
 
-
+#ifdef _WIN32
 
 #include <filesystem>
 #include <string>
 #include <Windows.h>
 #include <shtypes.h>
+
+#include "../src/Pixel.cpp"
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
@@ -34,3 +36,6 @@ class Prog_Window
 
 		static void OpenFileDilg() ;
 };
+
+
+#endif

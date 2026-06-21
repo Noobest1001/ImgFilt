@@ -2,7 +2,7 @@
 
 #include <tuple>
 
-class Window;
+class Prog_Window;
 typedef unsigned char byte;
 typedef std::tuple<byte, byte, byte> Pixel_tuple;
 
@@ -27,7 +27,7 @@ class Pixel
 		void setGreen(byte green);
 		void setBlue(byte blue);
 		static void print(const Pixel &pixel);
-		void draw(Window &window, unsigned int x, unsigned int y, Pixel pixel) const;
+		void draw(Prog_Window &window, unsigned int x_pos, unsigned int y_pos, Pixel pixel) const;
 };
 
 // Logical Operators
@@ -55,8 +55,7 @@ bool operator>=(Pixel const & lhs, const Pixel &rhs);
 bool operator>=(Pixel const & lhs, const std::tuple<byte, byte, byte> & rhs);
 bool operator>=(Pixel const & lhs, byte rhs);
 bool operator>=(Pixel const & lhs, int rhs);
-// bool operator&&(Pixel const & lhs, const Pixel &rhs);
-// bool operator||(Pixel const & lhs, const Pixel &rhs);
+
 bool operator!(Pixel const & lhs);
 
 // Arithmetic Operators
@@ -91,3 +90,5 @@ Pixel operator|(Pixel const & lhs, const Pixel &rhs);
 Pixel operator^(Pixel const & lhs, const Pixel &rhs);
 Pixel operator~(Pixel const & lhs);
 Pixel operator-(Pixel const & lhs);
+Pixel operator<<(Pixel const & lhs, const Pixel &rhs);
+Pixel operator>>(Pixel const & lhs, const Pixel &rhs);

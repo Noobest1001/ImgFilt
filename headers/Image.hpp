@@ -13,11 +13,12 @@ enum FileType
 
 class Image
 {
-	std::string imgName;
-	FileType fileType;
-	bool load = false;
-	unsigned int width = 0, height = 0;
-	Pixel pixel = Pixel(0,0,0);
+	protected:
+		std::string imgName;
+		FileType fileType;
+		bool load = false;
+		unsigned int width = 0, height = 0;
+		Pixel pixel = Pixel(0,0,0);
 
 	public:
 		Image(const std::string &name, bool load, unsigned int width, unsigned int height, FileType fileType);
